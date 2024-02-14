@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "830108616963",
+    "project_id": "revheads-61c4b",
+    "storage_bucket": "revheads-61c4b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:830108616963:android:fb8e8d4a558721f63c0136",
+        "android_client_info": {
+          "package_name": "com.example.revheads"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAY7e1krMwKy81aYk1wwhTbmFCVgZpL3s0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
