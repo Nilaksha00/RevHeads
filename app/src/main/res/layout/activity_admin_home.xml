@@ -8,38 +8,26 @@
     android:background="@color/background"
     tools:context=".AdminHomeActivity">
 
-    <TextView
-        android:id="@+id/view_orders_link"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:fontFamily="@font/poppins"
-        android:text="View Orders"
-        android:textColor="@color/primaryText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <EditText
         android:id="@+id/search"
         android:layout_width="match_parent"
         android:layout_height="38dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/search_bar"
         android:fontFamily="@font/poppins_semibold"
-        android:hint="Search"
+        android:hint="@string/search"
         android:inputType="text"
         android:paddingHorizontal="20dp"
         android:textColor="@color/white"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_orders_link" />
-
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/item_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="620dp"
         android:layout_marginTop="40dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/search" />
@@ -52,5 +40,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/add" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="284dp"
+        android:layout_height="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_horizontal" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

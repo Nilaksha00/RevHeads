@@ -149,7 +149,7 @@ public class AddItemActivity extends AppCompatActivity {
 
     private void addRCItem() {
         String Name = nameEditText.getText().toString().trim();
-        String Price = priceEditText.getText().toString().trim();
+        String Price = "LKR " + priceEditText.getText().toString().trim() + ".00";
         String Description = descriptionEditText.getText().toString().trim();
 
         if(Name.isEmpty()){

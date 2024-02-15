@@ -27,7 +27,6 @@ public class AdminHomeActivity extends AppCompatActivity {
     List<RCItem> itemList;
     FirebaseFirestore firebaseFirestore;
     ImageView addItem;
-    TextView viewOrders;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -36,7 +35,6 @@ public class AdminHomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_admin_home);
 
         addItem = findViewById(R.id.add_button);
-        viewOrders = findViewById(R.id.view_orders_link);
 
         firebaseFirestore = FirebaseFirestore.getInstance();
 
@@ -50,14 +48,6 @@ public class AdminHomeActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(AdminHomeActivity.this, AddItemActivity.class);
                 startActivity(intent);
-            }
-        });
-
-        viewOrders.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//                Intent intent = new Intent(AdminHomeActivity.this, AdminFlowerListActivity.class);
-//                startActivity(intent);
             }
         });
     }

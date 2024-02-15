@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">RevHeads</string>
+    <string name="app_name">RevHeads Admin Portal</string>
+    <string name="deleteItem">Delete item</string>
+    <string name="editItem">Edit item</string>
+    <string name="description">Description</string>
+    <string name="price_lkr">Price (LKR)</string>
+    <string name="name">Name</string>
+    <string name="search">Search</string>
 </resources>
