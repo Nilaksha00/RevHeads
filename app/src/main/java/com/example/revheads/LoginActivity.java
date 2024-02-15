@@ -39,6 +39,8 @@ public class LoginActivity extends AppCompatActivity {
         editTextEmail = findViewById(R.id.email);
         editTextPassword = findViewById(R.id.password);
         loginButton = findViewById(R.id.login_button);
+        registerLink = findViewById(R.id.register_link_button);
+
 
         registerLink.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,10 +109,10 @@ public class LoginActivity extends AppCompatActivity {
                         editor.apply();
 
                         if ("admin".equals(userRole)) {
-//                            Intent memberIntent = new Intent(LoginActivity.this, AdminHomeActivity.class);
-//                            startActivity(memberIntent);
+                            Intent memberIntent = new Intent(LoginActivity.this, AdminHomeActivity.class);
+                            startActivity(memberIntent);
                         } else {
-                            Intent adminIntent = new Intent(LoginActivity.this, ClientHomeActivity.class);
+                            Intent adminIntent = new Intent(LoginActivity.this, AdminHomeActivity.class);
                             adminIntent.putExtra("FullName", document.getString("fullname"));
                             startActivity(adminIntent);
                         }

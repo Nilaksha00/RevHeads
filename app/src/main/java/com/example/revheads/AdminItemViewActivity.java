@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class ClientHomeActivity extends AppCompatActivity {
+public class AdminItemViewActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_client_home);
+        setContentView(R.layout.activity_admin_item_view);
     }
 }
