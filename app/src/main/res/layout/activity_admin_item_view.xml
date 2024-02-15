@@ -167,7 +167,6 @@
         android:layout_height="200dp"
         android:scaleType="centerCrop"
         android:layout_marginTop="44dp"
-        android:background="@drawable/rounded_corner"
         app:layout_constraintTop_toTopOf="@+id/back_icon"
         app:srcCompat="@drawable/item_image"
         tools:layout_editor_absoluteX="7dp" />
