@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -26,7 +25,6 @@ public class LoginActivity extends AppCompatActivity {
     EditText editTextEmail, editTextPassword;
     private Button loginButton;
     private TextView registerLink;
-    SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +32,6 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         firebaseAuth = FirebaseAuth.getInstance();
-        sharedPreferences = getSharedPreferences("UserDetails", MODE_PRIVATE);
 
         editTextEmail = findViewById(R.id.email);
         editTextPassword = findViewById(R.id.password);
@@ -79,46 +76,12 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    checkUserRole();
+                    Intent adminIntent = new Intent(LoginActivity.this, AdminHomeActivity.class);
+                    startActivity(adminIntent);
                     Toast.makeText(LoginActivity.this, "Login Successfully",Toast.LENGTH_SHORT).show();
                 }
                 else{
                     Toast.makeText(getApplicationContext(),"Incorrect Credentials", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-    }
-
-    private void checkUserRole() {
-        FirebaseFirestore firebaseFirestore= FirebaseFirestore.getInstance();
-        String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        DocumentReference documentReference = firebaseFirestore.collection("users").document(userID);
-
-        documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isSuccessful()) {
-                    DocumentSnapshot document = task.getResult();
-                    if (document.exists()) {
-                        String userRole = document.getString("role");
-
-                        SharedPreferences.Editor editor = sharedPreferences.edit();
-                        editor.putString("UserID", userID);
-                        editor.putString("Email", document.getString("email"));
-                        editor.putString("FullName", document.getString("fullname"));
-                        editor.apply();
-
-                        if ("admin".equals(userRole)) {
-                            Intent memberIntent = new Intent(LoginActivity.this, AdminHomeActivity.class);
-                            startActivity(memberIntent);
-                        } else {
-                            Intent adminIntent = new Intent(LoginActivity.this, AdminHomeActivity.class);
-                            adminIntent.putExtra("FullName", document.getString("fullname"));
-                            startActivity(adminIntent);
-                        }
-                    }
-                } else {
-                    Toast.makeText(LoginActivity.this, "Error! Try Again",Toast.LENGTH_SHORT).show( );
                 }
             }
         });
